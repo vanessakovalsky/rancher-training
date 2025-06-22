@@ -9,6 +9,7 @@
 ## Prérequis techniques
 
 ### Infrastructure requise
+-> Créer les 3 machines sur VirtualBox avec les préconisations suivantes 
 - **3 machines Linux minimum** (Ubuntu 24.04 recommandé)
   - 1 nœud master (server) : 2 CPU, 4GB RAM, 20GB disk
   - 2 nœuds worker (agent) : 2 CPU, 2GB RAM, 20GB disk
