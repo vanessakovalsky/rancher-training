@@ -9,7 +9,7 @@
 ## Prérequis techniques
 
 ### Infrastructure requise
-- **3 machines Linux minimum** (Ubuntu 20.04+ ou CentOS 8+ recommandé)
+- **3 machines Linux minimum** (Ubuntu 24.04 recommandé)
   - 1 nœud master (server) : 2 CPU, 4GB RAM, 20GB disk
   - 2 nœuds worker (agent) : 2 CPU, 2GB RAM, 20GB disk
 - **Connectivité réseau** entre toutes les machines
