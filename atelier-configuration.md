@@ -1,3 +1,5 @@
+# Atelier - Configuration de Rancher Manager
+
 ### Objectif
 Configurer un environnement Rancher complet avec authentification, RBAC, monitoring et politiques de sécurité
 
@@ -11,16 +13,7 @@ Configurer un environnement Rancher complet avec authentification, RBAC, monitor
 **Étape 1: Configuration de l'authentification LDAP (15 min)**
 
 1. Accès au Dashboard Rancher
-2. Configuration LDAP:
-   ```
-   Global → Security → Authentication
-   - Provider: Active Directory
-   - Server: ldap://test-ad.formation.local:389
-   - Service Account: rancher@formation.local
-   - Password: Formation123!
-   - User Search Base: OU=Users,DC=formation,DC=local
-   ```
-
+2. Créer 3 comptes utilisateurs : webdev, devops et lecteur 
 3. Test de connexion et validation
 
 **Étape 2: Création de la structure organisationnelle (15 min)**
