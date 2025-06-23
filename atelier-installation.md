@@ -8,20 +8,9 @@
 
 ## Prérequis techniques
 
-### Rendre VirtualBox fonctionnel
 
-* VirtualBox est installé sur les machines mais certaines étapes de configurations sont à faire
-* Ouvrir un terminal et exécuter les commandes suivantes :
-```
-sudo zypper in kernel-devel kernel-default-devel gcc make perl
-sudo /sbin/vboxconfig
-```
+### Prérequis
 
-### Infrastructure requise
--> Créer les 3 machines sur VirtualBox avec les préconisations suivantes 
-- **3 machines Linux minimum** (Ubuntu 24.04 recommandé)
-  - 1 nœud master (server) : 4 CPU, 4GB RAM, 20GB disk
-  - 2 nœuds worker (agent) : 2 CPU, 2GB RAM, 20GB disk
 - **Connectivité réseau** entre toutes les machines
 - **Accès root ou sudo** sur toutes les machines
 - **Ports réseau ouverts** (voir section dédiée)
@@ -31,7 +20,6 @@ sudo /sbin/vboxconfig
 - Éditeur de texte (nano, vim)
 - Navigateur web (pour l'interface de gestion optionnelle)
 
----
 
 ## Phase 1 : Préparation de l'environnement
 
