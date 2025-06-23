@@ -23,12 +23,7 @@ Configurer un environnement Rancher complet avec authentification, RBAC, monitor
 
 **Étape 2: Création de la structure organisationnelle (15 min)**
 
-1. **Création des utilisateurs/groupes:**
-   - Groupe: `web-developers`
-   - Groupe: `devops-engineers`
-   - Groupe: `read-only-users`
-
-2. **Création du projet "Production Web":**
+1. **Création du projet "Production Web":**
    ```yaml
    Project: production-web
    Quotas:
