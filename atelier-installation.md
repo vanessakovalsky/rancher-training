@@ -30,9 +30,6 @@
 ```bash
 # 1. Définir les hostnames (adapter les IP selon votre environnement)
 sudo hostnamectl set-hostname rke2-master  # Sur le master
-sudo hostnamectl set-hostname rke2-worker1 # Sur worker 1
-sudo hostnamectl set-hostname rke2-worker2 # Sur worker 2
-
 # 2. Configurer le fichier hosts
 sudo nano /etc/hosts
 ```
@@ -40,11 +37,9 @@ sudo nano /etc/hosts
 **Ajouter dans /etc/hosts (sur toutes les machines) :**
 ```
 192.168.1.10 rke2-master
-192.168.1.11 rke2-worker1
-192.168.1.12 rke2-worker2
 ```
 
-### Étape 1.2 : Ouverture des ports firewall
+### Étape 1 : Ouverture des ports firewall
 
 **Sur le nœud master :**
 ```bash
@@ -62,17 +57,6 @@ sudo firewall-cmd --permanent --add-port=9345/tcp
 sudo firewall-cmd --reload
 ```
 
-**Sur les nœuds worker :**
-```bash
-# Pour Ubuntu/Debian
-sudo ufw allow 10250/tcp   # Kubelet API
-sudo ufw allow 30000:32767/tcp # NodePort services
-
-# Pour CentOS/RHEL
-sudo firewall-cmd --permanent --add-port=10250/tcp
-sudo firewall-cmd --permanent --add-port=30000-32767/tcp
-sudo firewall-cmd --reload
-```
 
 ### Étape 1.3 : Désactivation du swap
 
@@ -186,7 +170,7 @@ sudo cat /var/lib/rancher/rke2/server/node-token
 
 ---
 
-## Phase 3 : Ajout des nœuds worker
+## Phase 3 (optionnel non utile pour la formation) : Ajout des nœuds worker
 
 ### Étape 3.1 : Installation de RKE2 sur les workers
 
