@@ -55,7 +55,7 @@ Configurer un environnement Rancher complet avec authentification, RBAC, monitor
      - Secrets: Read (limited)
    ```
 
-**Étape 4: Déploiement OPA Gatekeeper (10 min)**
+**Étape 4: Déploiement Kubewarden**
 
 1. Installation via Apps & Marketplace
 2. Configuration des contraintes de sécurité:
