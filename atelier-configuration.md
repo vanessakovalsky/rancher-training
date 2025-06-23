@@ -55,17 +55,6 @@ Configurer un environnement Rancher complet avec authentification, RBAC, monitor
      - Secrets: Read (limited)
    ```
 
-**Étape 4: Déploiement Kubewarden**
-
-1. Installation via Apps & Marketplace
-2. Configuration des contraintes de sécurité:
-   ```yaml
-   Policies à appliquer:
-     - Interdire containers privilégiés
-     - Forcer runAsNonRoot
-     - Limiter les registries autorisés
-     - Forcer les resource limits
-   ```
 
 **Étape 5: Validation et tests (5 min)**
 
