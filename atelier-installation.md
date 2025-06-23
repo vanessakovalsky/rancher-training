@@ -239,60 +239,10 @@ kubectl cluster-info
 
 **Résultat attendu :** Tous les nœuds doivent être en état "Ready"
 
----
 
-## Phase 4 : Configuration avancée et outils
+## Phase 4 : Tests et validation
 
-### Étape 4.1 : Installation de Helm
-
-**Sur le nœud master :**
-
-```bash
-# 1. Télécharger et installer Helm
-curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
-
-# 2. Vérifier l'installation
-helm version
-
-# 3. Ajouter des repositories utiles
-helm repo add stable https://charts.helm.sh/stable
-helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
-helm repo update
-```
-
-### Étape 4.2 : Configuration de crictl
-
-**Sur tous les nœuds :**
-
-```bash
-# 1. Configurer crictl pour RKE2
-sudo tee /etc/crictl.yaml <<EOF
-runtime-endpoint: unix:///run/k3s/containerd/containerd.sock
-image-endpoint: unix:///run/k3s/containerd/containerd.sock
-timeout: 2
-debug: false
-EOF
-
-# 2. Tester crictl
-sudo /var/lib/rancher/rke2/bin/crictl images
-sudo /var/lib/rancher/rke2/bin/crictl pods
-```
-
-### Étape 4.3 : Installation d'un ingress controller (optionnel)
-
-```bash
-# Installation de nginx-ingress avec Helm
-helm install ingress-nginx ingress-nginx/ingress-nginx \
-  --namespace ingress-nginx \
-  --create-namespace \
-  --set controller.service.type=NodePort
-```
-
----
-
-## Phase 5 : Tests et validation
-
-### Étape 5.1 : Déploiement d'une application de test
+### Étape 4.1 : Déploiement d'une application de test
 
 ```bash
 # 1. Créer un namespace de test
@@ -308,7 +258,7 @@ kubectl expose deployment nginx --port=80 --type=NodePort -n test-app
 kubectl get all -n test-app
 ```
 
-### Étape 5.2 : Test de connectivité
+### Étape 4.2 : Test de connectivité
 
 ```bash
 # 1. Obtenir le port NodePort
@@ -318,7 +268,7 @@ kubectl get svc nginx -n test-app
 curl http://192.168.1.11:NODEPORT  # Remplacer NODEPORT par le port affiché
 ```
 
-### Étape 5.3 : Test de scalabilité
+### Étape 4.3 : Test de scalabilité
 
 ```bash
 # 1. Scaler l'application
@@ -334,9 +284,9 @@ kubectl get pods -n test-app
 
 ---
 
-## Phase 6 : Surveillance et maintenance
+## Phase 5 : Surveillance et maintenance
 
-### Étape 6.1 : Commandes de diagnostic essentielles
+### Étape 5.1 : Commandes de diagnostic essentielles
 
 ```bash
 # État du cluster
