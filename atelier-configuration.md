@@ -10,6 +10,10 @@ Configurer un environnement Rancher complet avec authentification, RBAC, monitor
 
 ### Étapes détaillées
 
+**Etape 0 : Installation de l'UI**
+
+* Suivre les instructions ici : https://ranchermanager.docs.rancher.com/getting-started/quick-start-guides/deploy-rancher-manager/helm-cli#install-rancher-with-helm
+
 **Étape 1: Configuration de l'authentification LDAP (15 min)**
 
 1. Accès au Dashboard Rancher
