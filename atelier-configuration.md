@@ -56,12 +56,11 @@ Configurer un environnement Rancher complet avec authentification, RBAC, monitor
    ```
 
 
-**Étape 5: Validation et tests (5 min)**
+**Étape 4: Validation et tests (5 min)**
 
 1. Test d'authentification avec différents utilisateurs
 2. Vérification des quotas de projet
-3. Test des politiques OPA Gatekeeper
-4. Validation du monitoring
+3. Validation du monitoring
 
 ### Livrables de l'atelier
 - Environment Rancher fonctionnel avec authentification
