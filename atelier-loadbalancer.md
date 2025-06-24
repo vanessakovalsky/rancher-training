@@ -1,4 +1,4 @@
-# Atelier Pratique : Configuration LoadBalancer Klipper (60 min)
+# Atelier Pratique : Configuration LoadBalancer 
 
 ## 🎯 Objectifs (5 min)
 - Comprendre le rôle de Klipper LoadBalancer
