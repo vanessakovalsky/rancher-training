@@ -94,7 +94,7 @@ spec:
 ```
 
 ### Étape 2.2 : Appliquer via Rancher UI
-1. Accéder à **Cluster Explorer** → **Network** → **Network Policies**
+1. Accéder à **Cluster Explorer** → **Policy** → **Network Policies**
 2. Cliquer sur **Create from YAML**
 3. Coller la politique et appliquer
 4. Répéter pour les namespaces `backend` et `database`
@@ -195,7 +195,7 @@ spec:
 
 ### Étape 4.1 : Utiliser l'interface Rancher
 1. **Projects/Namespaces** → Sélectionner le projet
-2. **Resources** → **Network Policies**
+2. **Policy** → **Network Policies**
 3. **Add Policy** → Utiliser le wizard graphique
 
 ### Étape 4.2 : Template de politique réutilisable
@@ -235,7 +235,7 @@ kubectl get networkpolicies --all-namespaces
 # Détails d'une politique
 kubectl describe networkpolicy default-deny-all -n frontend
 
-# Logs CNI (exemple avec Calico)
+# Logs CNI (exemple avec Calico, à adapter en fonction des pods de votre cluster)
 kubectl logs -n kube-system -l k8s-app=calico-node --tail=20
 ```
 
