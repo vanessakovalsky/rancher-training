@@ -12,18 +12,11 @@
 
 ---
 
-## 📝 Étape 1 : Vérification rapide (5 min)
+## 📝 Étape 1 : Installation du LoadBalancer
 
-### Vérifier Klipper et l'environnement
-```bash
-# Vérifier Klipper
-kubectl get pods -n kube-system | grep svclb
+* Installer Nginx en tant que LoadBalancer : https://ranchermanager.docs.rancher.com/how-to-guides/new-user-guides/infrastructure-setup/nginx-load-balancer 
 
-# Lister les nœuds
-kubectl get nodes -o wide
-```
-
-**✅ Validation** : Pods svclb présents ou aucun service LoadBalancer actif
+**✅ Validation** : Nginx est démarré (status running) 
 
 ---
 
