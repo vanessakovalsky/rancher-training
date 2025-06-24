@@ -105,73 +105,10 @@ curl http://<NODE_IP>:30080
 
 **Résultat attendu :** Page d'accueil nginx accessible depuis l'extérieur
 
----
 
-## Étape 4 : Service LoadBalancer (5 minutes)
+## Étape 4 : Comparaison et nettoyage (2 minutes)
 
-Le service LoadBalancer utilise un load balancer externe (cloud provider).
-
-### 4.1 Création du service LoadBalancer
-1. Dans **Services**, cliquez sur **Create**
-2. Configuration :
-   - **Name** : `nginx-loadbalancer`
-   - **Namespace** : `workshop-services`
-   - **Service Type** : `LoadBalancer`
-   - **Target Workload** : Sélectionnez `nginx-demo`
-   - **Port Mapping** :
-     - Port : `80`
-     - Target Port : `80`
-     - Protocol : `TCP`
-3. Cliquez sur **Create**
-
-### 4.2 Vérification du LoadBalancer
-1. Dans la liste des services, vérifiez l'attribution d'une IP externe
-2. Si disponible, testez l'accès :
-```bash
-curl http://<EXTERNAL_IP>
-```
-
-**Note :** L'IP externe peut prendre quelques minutes à être attribuée selon votre environnement cloud.
-
----
-
-## Étape 5 : Ingress Controller (8 minutes)
-
-L'Ingress permet l'accès externe via des noms de domaine et offre des fonctionnalités avancées (SSL, routing).
-
-### 5.1 Vérification de l'Ingress Controller
-1. Naviguez vers **Service Discovery > Ingresses**
-2. Vérifiez qu'un Ingress Controller est installé (nginx-ingress, traefik, etc.)
-
-### 5.2 Création de l'Ingress
-1. Cliquez sur **Create**
-2. Configuration :
-   - **Name** : `nginx-ingress`
-   - **Namespace** : `workshop-services`
-   - **Rules** :
-     - **Host** : `nginx-demo.local` (ou votre domaine)
-     - **Path** : `/`
-     - **Target Service** : `nginx-clusterip`
-     - **Port** : `80`
-3. Dans **Certificates**, ajoutez si nécessaire un certificat SSL
-4. Cliquez sur **Create**
-
-### 5.3 Configuration DNS locale (pour test)
-Ajoutez dans votre fichier `/etc/hosts` (Linux/Mac) ou `C:\Windows\System32\drivers\etc\hosts` (Windows) :
-```
-<INGRESS_IP> nginx-demo.local
-```
-
-### 5.4 Test de l'Ingress
-```bash
-curl http://nginx-demo.local
-```
-
----
-
-## Étape 6 : Comparaison et nettoyage (2 minutes)
-
-### 6.1 Comparaison des services
+### 4.1 Comparaison des services
 
 | Type | Accessibilité | Use Case | IP/Port |
 |------|---------------|----------|---------|
@@ -180,12 +117,12 @@ curl http://nginx-demo.local
 | LoadBalancer | Externe via LB | Production cloud | IP externe attribuée |
 | Ingress | Externe via domaine | Production, SSL, routing | Nom de domaine |
 
-### 6.2 Vérification finale
+### 4.2 Vérification finale
 1. Listez tous vos services : **Service Discovery > Services**
 2. Vérifiez leur état et configuration
 3. Testez l'accès selon le type de service
 
-### 6.3 Nettoyage (optionnel)
+### 4.3 Nettoyage (optionnel)
 Pour nettoyer l'environnement :
 1. Supprimez les services créés
 2. Supprimez le déploiement `nginx-demo`
