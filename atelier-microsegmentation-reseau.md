@@ -10,7 +10,7 @@
 
 ## 📋 Prérequis
 - Cluster Kubernetes fonctionnel avec Rancher
-- CNI compatible Network Policies (Calico, Cilium, ou Weave)
+- CNI compatible Network Policies (Canal (par défaut), Calico, Cilium, ou Weave)
 - Accès administrateur au cluster
 - kubectl configuré
 
@@ -21,7 +21,7 @@
 ### Étape 1.1 : Vérifier l'environnement
 ```bash
 # Vérifier le CNI installé
-kubectl get pods -n kube-system | grep -E "(calico|cilium|weave)"
+kubectl get pods -n kube-system | grep -E "(calico|cilium|weave|canal)"
 
 # Créer les namespaces de démonstration
 kubectl create namespace frontend
