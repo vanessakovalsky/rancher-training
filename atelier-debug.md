@@ -197,7 +197,7 @@ kubectl logs -n cattle-system deployment/rancher | grep -i error
    ```
 
 2. **Nettoyer les anciens événements** :
-   - Interface Rancher : Tools > Remove Orphaned Data
+   - Interface Rancher : Tools > Remove Orphaned Data (disponible une fois longhorn installé)
 
 ---
 
