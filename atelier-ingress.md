@@ -24,7 +24,7 @@
    ```bash
    kubectl get pods -n ingress-nginx
    ```
-   Si absent, installez-le via **Apps & Marketplace > nginx-ingress**
+   Si absent, installez-le via **Cluster > Apps > nginx-ingress**
 
 ### 1.2 Création du namespace
 ```bash
