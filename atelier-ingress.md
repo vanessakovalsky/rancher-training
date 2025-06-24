@@ -409,7 +409,7 @@ kubectl get events -n workshop-ingress --sort-by=.metadata.creationTimestamp
 
 ### Ressources pour aller plus loin
 - [Documentation officielle NGINX Ingress Controller](https://docs.nginx.com/nginx-ingress-controller/)
-- Guide cert-manager pour Let's Encrypt
-- Monitoring Ingress avec Prometheus
-- Configuration avancée : rate limiting, circuit breakers
+- [Guide cert-manager pour Let's Encrypt](https://cert-manager.io/docs/tutorials/acme/nginx-ingress/)
+- [Monitoring Ingress avec Prometheus](https://docs.nginx.com/nginx-ingress-controller/logging-and-monitoring/prometheus/)
+- [Configuration avancée : rate limiting, circuit breakers](https://docs.nginx.com/nginx-ingress-controller/configuration/policy-resource/)
 
