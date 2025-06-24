@@ -148,6 +148,7 @@ Pour nettoyer l'environnement :
 - Configurez des alertes sur la disponibilité
 - Utilisez les logs pour le troubleshooting
 
+
 ---
 
 ## Questions de validation
