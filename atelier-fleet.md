@@ -89,12 +89,13 @@ spec:
 ```
 
 ### Étape 2.2 : Connexion Git dans Rancher (10 min)
-1. **Continuous Delivery** → **Git Repos**
-2. **Add Repository** :
+1. **Continuous Delivery** → **Git Repos**.
+2. Pensez à sélectionner le workspace 'fleet-local' en haut à droite
+3. **Add Repository** :
    - **Name** : `demo-gitops`
    - **Repository URL** : `https://github.com/votre-repo/gitops-demo.git`
    - **Branch** : `main`
-   - **Paths** : `fleet-config`
+   - **Paths** : `app`
 
 **Push initial :**
 ```bash
