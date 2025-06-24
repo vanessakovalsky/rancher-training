@@ -121,7 +121,7 @@ Resource Quotas:
 ## Exercice 4 : Mise en place de Network Policies (5 minutes)
 
 ### Tâche 4.1 : Isolation des environnements
-1. Naviguez vers **Security → Network Policies**
+1. Naviguez vers **Policy → Network Policies**
 2. Créez une policy pour isoler la production :
 
 **Nom :** `prod-isolation`
