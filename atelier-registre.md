@@ -13,7 +13,7 @@
 - Accès à une instance Rancher
 - Cluster Kubernetes configuré dans Rancher
 - Droits d'administration sur le projet/namespace
-
+- Installer docker ou buildkit pour construire une image de conteneur : https://docs.docker.com/engine/install/ ou  https://github.com/moby/buildkit#containerd-image-store
 ---
 
 ## Étape 1 : Création du registre privé sur Docker Hub
