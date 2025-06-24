@@ -166,7 +166,10 @@ ingress:
 ### Tâche 5.1 : Vérification de la structure
 1. Allez dans **Cluster → Projects/Namespaces**
 2. Vérifiez que tous les namespaces sont créés avec les bons labels
-3. Testez le filtre par label `environment=prod`
+3. Testez le filtre par label `environment=prod` -> pas disponible dans l'UI le faire en CLI :
+```
+kubectl get ns -l environnement=prod
+```
 
 ### Tâche 5.2 : Documentation
 Créez une ConfigMap avec la documentation de votre structure :
