@@ -84,15 +84,6 @@ echo "External IP: $EXTERNAL_IP"
 curl http://$EXTERNAL_IP
 ```
 
-### Vérifier les pods Klipper créés
-```bash
-# Pods svclb créés automatiquement
-kubectl get pods -n kube-system | grep svclb-nginx-loadbalancer
-
-# Détails d'un pod svclb
-kubectl describe pod -n kube-system $(kubectl get pods -n kube-system -o name | grep svclb-nginx-loadbalancer | head -1)
-```
-
 ### Test de répartition de charge
 ```bash
 # Test rapide de load balancing
@@ -155,8 +146,6 @@ kubectl describe svc nginx-fixed-ip
 # Vérifier les événements
 kubectl get events | grep nginx-fixed-ip | tail -5
 
-# Vérifier les pods svclb
-kubectl get pods -n kube-system | grep svclb-nginx-fixed-ip
 ```
 
 ### Résolution
@@ -182,7 +171,6 @@ kubectl delete deployment nginx-demo
 
 # Vérifier le nettoyage
 kubectl get svc | grep LoadBalancer
-kubectl get pods -n kube-system | grep svclb
 ```
 
 **✅ Validation** : Environnement nettoyé
