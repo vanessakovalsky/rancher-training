@@ -54,6 +54,10 @@ kubectl get nodes -o jsonpath='{.items[*].metadata.name}' | xargs -I {} kubectl 
 # Sur chaque nœud (exemple Ubuntu/Debian)
 sudo apt-get update
 sudo apt-get install -y open-iscsi util-linux
+
+# Sur open suse
+
+sudo zypper install open-iscsi util-linux
 ```
 
 ---
