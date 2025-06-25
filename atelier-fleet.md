@@ -109,8 +109,8 @@ git add . && git commit -m "Initial setup" && git push origin main
 ### Étape 3.1 : Vérification déploiement (5 min)
 ```bash
 # Vérifier les resources Fleet
-kubectl get gitrepos -n fleet-default
-kubectl get bundles -n fleet-default
+kubectl get gitrepos -n fleet-local
+kubectl get bundles -n fleet-local
 kubectl get bundledeployments -A
 
 # Vérifier l'application
@@ -144,7 +144,7 @@ git add . && git commit -m "Scale to 3 replicas + update nginx" && git push
 watch kubectl get pods -l app=demo-app
 
 # Vérifier Fleet
-kubectl get bundles -n fleet-default -w
+kubectl get bundles -n fleet-local -w
 ```
 
 ---
