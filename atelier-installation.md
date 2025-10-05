@@ -23,6 +23,15 @@
 
 ## Phase 1 : Préparation de l'environnement
 
+### Etape 1.0 : Création des machines
+
+* En environnement Linux, on va installer multipass et créer une VM :
+```
+sudo snap install multipass
+multipass launch --name=rke-master
+```
+* Ouvrir l'utilitaire multipass depuis le menu et vous connecter à l'instance rke-master que l'on vient de créer pour la suite
+
 ### Étape 1.1 : Configuration réseau et hostnames
 
 **Sur toutes les machines :**
@@ -107,7 +116,7 @@ sudo sysctl --system
 
 ```bash
 # 1. Télécharger le script d'installation RKE2
-curl -sfL https://get.rke2.io | sh -
+sudo curl -sfL https://get.rke2.io | sudo sh -
 
 # 2. Créer le répertoire de configuration
 sudo mkdir -p /etc/rancher/rke2/
