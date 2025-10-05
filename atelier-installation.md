@@ -71,9 +71,6 @@ sudo firewall-cmd --reload
 
 **Sur toutes les machines :**
 ```bash
-# Désactiver le swap temporairement
-sudo swapoff -a
-
 # Désactiver le swap de façon permanente
 sudo sed -i '/ swap / s/^\(.*\)$/#\1/g' /etc/fstab
 
@@ -115,32 +112,8 @@ sudo sysctl --system
 **Sur le nœud master uniquement :**
 
 ```bash
-curl -LO https://github.com/rancher/rke2/releases/download/v1.28.9%2Brke2r1/rke2.linux-amd64.tar.gz
-sudo tar -xvzf rke2.linux-amd64.tar.gz -C /usr/local
-sudo mkdir -p /var/lib/rancher/rke2/bin
-sudo cp /usr/local/lib/systemd/system/rke2-server.service /etc/systemd/system/
-sudo systemctl daemon-reload
-sudo systemctl enable rke2-server
-sudo systemctl start rke2-server
-
-
-
-# 1. Télécharger le script d'installation RKE2 avec une version et un type d'installation compatible ubuntu 24.04
-curl -sfL https://get.rke2.io | sudo INSTALL_RKE2_VERSION="v1.28.9+rke2r1" INSTALL_RKE2_TYPE="server" sh -
-
-# 2. Créer le répertoire de configuration
-sudo mkdir -p /etc/rancher/rke2/
-
-# 3. Créer le fichier de configuration
-sudo tee /etc/rancher/rke2/config.yaml <<EOF
-# Configuration du serveur RKE2
-write-kubeconfig-mode: "0644"
-tls-san:
-  - "rke2-master"
-  - "192.168.1.10"  # IP du master
-cluster-cidr: "10.42.0.0/16"
-service-cidr: "10.43.0.0/16"
-EOF
+# Télécharger le script d'installation RKE2 avec un type d'installation compatible ubuntu 24.04
+curl -sfL https://get.rke2.io | sudo INSTALL_RKE2_TYPE="server" sh -
 ```
 
 ### Étape 2.2 : Démarrage du service RKE2
