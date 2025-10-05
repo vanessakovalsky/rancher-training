@@ -28,7 +28,7 @@
 * En environnement Linux, on va installer multipass et créer une VM :
 ```
 sudo snap install multipass
-multipass launch --name=rke-master
+multipass launch 22.04 --name=rke-master   --cpus 2 --memory 4G --disk 20G
 ```
 * Ouvrir l'utilitaire multipass depuis le menu et vous connecter à l'instance rke-master que l'on vient de créer pour la suite
 
