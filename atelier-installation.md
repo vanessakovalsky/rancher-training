@@ -115,8 +115,8 @@ sudo sysctl --system
 **Sur le nœud master uniquement :**
 
 ```bash
-# 1. Télécharger le script d'installation RKE2
-sudo curl -sfL https://get.rke2.io | sudo sh -
+# 1. Télécharger le script d'installation RKE2 avec une version et un type d'installation compatible ubuntu 24.04
+curl -sfL https://get.rke2.io | sudo INSTALL_RKE2_VERSION="v1.28.9+rke2r1" INSTALL_RKE2_TYPE="server" sh -
 
 # 2. Créer le répertoire de configuration
 sudo mkdir -p /etc/rancher/rke2/
