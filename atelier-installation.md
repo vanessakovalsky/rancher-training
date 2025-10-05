@@ -115,6 +115,16 @@ sudo sysctl --system
 **Sur le nœud master uniquement :**
 
 ```bash
+curl -LO https://github.com/rancher/rke2/releases/download/v1.28.9%2Brke2r1/rke2.linux-amd64.tar.gz
+sudo tar -xvzf rke2.linux-amd64.tar.gz -C /usr/local
+sudo mkdir -p /var/lib/rancher/rke2/bin
+sudo cp /usr/local/lib/systemd/system/rke2-server.service /etc/systemd/system/
+sudo systemctl daemon-reload
+sudo systemctl enable rke2-server
+sudo systemctl start rke2-server
+
+
+
 # 1. Télécharger le script d'installation RKE2 avec une version et un type d'installation compatible ubuntu 24.04
 curl -sfL https://get.rke2.io | sudo INSTALL_RKE2_VERSION="v1.28.9+rke2r1" INSTALL_RKE2_TYPE="server" sh -
 
