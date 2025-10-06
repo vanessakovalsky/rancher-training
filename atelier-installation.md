@@ -164,13 +164,20 @@ sudo cat /var/lib/rancher/rke2/server/node-token
 
 ## Phase 3 (optionnel non utile pour la formation) : Ajout des nœuds worker
 
+### Etape 3.0 : création de la machine
+
+* Pour chaque noeud worker que vous voulez il faut créer une machine
+```
+multipass launch 22.04 --name=rke-worker1 --cpus 2 --memory 4G --disk 20G
+```
+
 ### Étape 3.1 : Installation de RKE2 sur les workers
 
 **Sur chaque nœud worker :**
 
 ```bash
 # 1. Télécharger le script d'installation RKE2
-curl -sfL https://get.rke2.io | INSTALL_RKE2_TYPE="agent" sh -
+curl -sfL https://get.rke2.io | sudo INSTALL_RKE2_TYPE="agent" sh -
 
 # 2. Créer le répertoire de configuration
 sudo mkdir -p /etc/rancher/rke2/
