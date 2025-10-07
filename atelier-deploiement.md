@@ -115,7 +115,7 @@ Notez la progression :
 3. **Save** et observer l'échec
 
 ### 5.2 Rollback via Rancher
-1. Dans le deployment → **Revision History**
+1. Dans le deployment → Menu en haut à droite (les trois petits points) -> Rollback
 2. Sélectionner la **révision précédente** (nginx:1.21)
 3. **Rollback to this revision**
 4. Vérifier le retour à l'état stable
