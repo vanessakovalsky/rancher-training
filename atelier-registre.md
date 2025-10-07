@@ -139,7 +139,7 @@ Remplissez les informations suivantes :
 curl http://<node-ip>:<nodeport>
 
 # Ou utilisez kubectl port-forward
-kubectl port-forward deployment/app-privee-test 8080:80
+kubectl port-forward -n <votre-namespace> deployment/app-privee-test 8080:80
 curl http://localhost:8080
 ```
 
