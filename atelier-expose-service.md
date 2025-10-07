@@ -59,7 +59,6 @@ Le service ClusterIP expose l'application uniquement à l'intérieur du cluster.
    - **Name** : `nginx-clusterip`
    - **Namespace** : `workshop-services`
    - **Service Type** : `ClusterIP`
-   - **Target Workload** : Sélectionnez `nginx-demo`
    - **Port Mapping** :
      - Port : `80`
      - Target Port : `80`
@@ -88,7 +87,6 @@ Le service NodePort expose l'application sur un port spécifique de chaque nœud
    - **Name** : `nginx-nodeport`
    - **Namespace** : `workshop-services`
    - **Service Type** : `NodePort`
-   - **Target Workload** : Sélectionnez `nginx-demo`
    - **Port Mapping** :
      - Port : `80`
      - Target Port : `80`
