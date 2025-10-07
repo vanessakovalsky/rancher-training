@@ -27,7 +27,7 @@ Nous déploierons une application web simple (nginx) et l'exposerons via 4 types
 ### 1.1 Connexion à Rancher
 1. Connectez-vous à votre interface Rancher
 2. Sélectionnez votre cluster de travail
-3. Naviguez vers **Workloads > Deployments**
+3. Naviguez vers **Cluster > Project/namespace**
 
 ### 1.2 Création du namespace
 1. Cliquez sur **Create Namespace**
