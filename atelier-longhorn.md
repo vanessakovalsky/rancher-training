@@ -86,11 +86,6 @@ persistence:
   defaultClass: true
   defaultClassReplicaCount: 3
   reclaimPolicy: "Retain"
-
-ingress:
-  enabled: true
-  host: "longhorn.votre-domaine.com"
-  tls: true
 ```
 
 #### Étape 3 : Déployer l'application
@@ -132,14 +127,12 @@ kubectl get nodes.longhorn.io -n longhorn-system
 
 ### Accéder au dashboard Longhorn
 
-#### Via port-forward
+### Modifier le service de longhorn ui pour le passer en node port
 ```bash
-kubectl port-forward -n longhorn-system svc/longhorn-frontend 8080:80
+kubectl patch svc longhorn-frontend -n longhorn-system -p '{"spec": {"type": "NodePort"}}'
+kubectl get svc -n longhorn-system longhorn-frontend
 ```
-Accédez à http://localhost:8080
-
-#### Via Ingress (si configuré)
-Accédez à https://longhorn.votre-domaine.com
+Accédez à http://[IPdeVotreVM]:[portNodePort]
 
 ### Créer un volume persistent
 
