@@ -288,7 +288,7 @@ kubectl get ingress -n workshop-ingress
 kubectl describe ingress workshop-ingress -n workshop-ingress
 
 # Logs du contrôleur Ingress
-kubectl logs -n ingress-nginx -l app.kubernetes.io/name=ingress-nginx
+kubectl logs -n kube-system $(kubectl get pods -n kube-system | grep rke2-ingress-nginx-controller | awk '{print $1}')
 ```
 
 ---
