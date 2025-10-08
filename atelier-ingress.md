@@ -68,6 +68,13 @@ spec:
         volumeMounts:
         - name: html-content
           mountPath: /usr/share/nginx/html
+        resources:
+          limits:
+            cpu: 1m
+            memory: 128Mi
+          requests:
+            cpu: 1m
+            memory: 128Mi
       volumes:
       - name: html-content
         configMap:
@@ -125,17 +132,24 @@ spec:
         app: api
     spec:
       containers:
-      - name: api
-        image: hashicorp/http-echo:0.2.3
-        args:
-        - "-text=API Response from $(HOSTNAME)"
-        ports:
-        - containerPort: 5678
-        env:
-        - name: HOSTNAME
-          valueFrom:
-            fieldRef:
-              fieldPath: metadata.name
+        - name: api
+          image: hashicorp/http-echo:0.2.3
+          args:
+            - "-text=API Response from $(HOSTNAME)"
+          ports:
+            - containerPort: 5678
+          env:
+            - name: HOSTNAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
+          resources:
+            limits:
+              cpu: 1m
+              memory: 128Mi
+            requests:
+              cpu: 1m
+              memory: 128Mi
 ---
 apiVersion: v1
 kind: Service
@@ -146,9 +160,10 @@ spec:
   selector:
     app: api
   ports:
-  - port: 80
-    targetPort: 5678
+    - port: 80
+      targetPort: 5678
   type: ClusterIP
+
 ```
 
 ### 2.3 Déploiement
