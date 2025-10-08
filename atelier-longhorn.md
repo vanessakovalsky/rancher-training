@@ -76,7 +76,7 @@ sudo zypper install open-iscsi util-linux
 ```yaml
 # Paramètres de configuration recommandés
 defaultSettings:
-  defaultDataPath: "/var/lib/longhorn"
+  defaultDataPath: "/var/lib/longhorn/"
   defaultReplicaCount: 3
   createDefaultDiskLabeledNodes: true
   defaultLonghornStaticStorageClass: "longhorn"
