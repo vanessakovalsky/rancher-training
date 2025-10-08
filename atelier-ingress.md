@@ -301,9 +301,9 @@ Ajoutez dans `/etc/hosts` (Linux/Mac) ou `C:\Windows\System32\drivers\etc\hosts`
 <IP_DU_LOAD_BALANCER> workshop.local
 ```
 
-Pour trouver l'IP :
+Pour trouver l'IP :Prendre l'adresse IP dans la colonne Internal_IP
 ```bash
-kubectl get svc -n ingress-nginx
+kubectl get node -o wide
 ```
 
 ### 5.2 Tests de connectivité
