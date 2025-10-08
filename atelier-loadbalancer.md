@@ -1,8 +1,7 @@
 # Atelier Pratique : Configuration LoadBalancer 
 
 ## 🎯 Objectifs (5 min)
-- Comprendre le rôle de Klipper LoadBalancer
-- Configurer et tester un LoadBalancer Klipper
+- Configurer et tester un LoadBalancer 
 - Résoudre un problème courant
 
 ## 📋 Prérequis
@@ -14,9 +13,31 @@
 
 ## 📝 Étape 1 : Installation du LoadBalancer
 
-* Installer Nginx en tant que LoadBalancer : https://ranchermanager.docs.rancher.com/how-to-guides/new-user-guides/infrastructure-setup/nginx-load-balancer 
-
-**✅ Validation** : Nginx est démarré (status running) 
+* Installer MetalLB en tant que load balancer :
+```
+ kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.14.5/config/manifests/metallb-native.yaml
+```
+* Attendre que les deux pods soit au statut running : kubectl get pods -n metallb-system
+* Configurer la plage d'adresse IP disponible pour votre load balancer (adapter les plages d'adresse IP avec vos adresses IP):
+```
+kubectl apply -f - <<EOF
+apiVersion: metallb.io/v1beta1
+kind: IPAddressPool
+metadata:
+  name: default-pool
+  namespace: metallb-system
+spec:
+  addresses:
+  - 10.26.90.100-10.26.90.110  
+---
+apiVersion: metallb.io/v1beta1
+kind: L2Advertisement
+metadata:
+  name: default
+  namespace: metallb-system
+EOF
+```
+* Vous n'avez plus qu'à tester en passant à l'étape 2
 
 ---
 
