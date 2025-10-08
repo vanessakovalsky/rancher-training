@@ -69,26 +69,8 @@ spec:
 
 ## Phase 2 : Configuration Fleet (15 min)
 
-### Étape 2.1 : Fleet.yaml (5 min)
-```yaml
-# fleet-config/fleet.yaml
-apiVersion: fleet.cattle.io/v1alpha1
-kind: Bundle
-metadata:
-  name: demo-app
-spec:
-  resources:
-  - name: app-manifests
-    content: |
-      {{ .Files.Get "../app/deployment.yaml" }}
-  targets:
-  - name: local
-    clusterSelector:
-      matchLabels:
-        management.cattle.io/cluster-display-name: local
-```
 
-### Étape 2.2 : Connexion Git dans Rancher (10 min)
+### Étape 2.1 : Connexion Git dans Rancher (10 min)
 1. **Continuous Delivery** → **Git Repos**.
 2. Pensez à sélectionner le workspace 'fleet-local' en haut à droite
 3. **Add Repository** :
