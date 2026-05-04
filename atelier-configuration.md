@@ -70,6 +70,13 @@ Configurer un environnement Rancher complet avec authentification, RBAC, monitor
 
 ### Troubleshooting
 
+#### En cas de problème pour télécharger une image (rancher ou une autre)
+* Ouvrir le fichier /etc/resolve.conf
+* Ajouter la ligne suivante :
+```
+nameserver 8.8.8.8
+```
+
 #### En cas de problèmes pour accèder à l'UI :
 * Modifier le service rancher en service de type NodePort, pour cela :
 ```
